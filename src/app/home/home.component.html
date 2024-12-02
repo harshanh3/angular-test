@@ -1,0 +1,23 @@
+<div *ngIf="!loginshow" class="container w-25"
+  style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+  <h2 class="text-center">Login Page</h2>
+  <form>
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input #usernme="ngModel" [(ngModel)]="username" name="username" type="text" class="form-control" id="username"
+        required />
+      <ng-container *ngIf="usernme.invalid && usernme.touched">
+        <div class="text-danger fw-bolder">invalid username</div>
+      </ng-container>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input #psdinput="ngModel" [(ngModel)]="password" name="password" type="password" class="form-control"
+        id="password" required />
+      <ng-container *ngIf="psdinput.invalid && psdinput.touched">
+        <div class="text-danger fw-bolder">invalid password</div>
+      </ng-container>
+    </div>
+    <button type="button" class="btn btn-primary w-100" (click)="login()">Login</button>
+  </form>
+</div>
